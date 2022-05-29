@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Child of Test
 parent: Test
 has_children: true
