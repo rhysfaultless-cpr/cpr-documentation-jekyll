@@ -1,5 +1,6 @@
 ---
 title: Homepage
+has_children: false
 nav_order: 1
 ---
 

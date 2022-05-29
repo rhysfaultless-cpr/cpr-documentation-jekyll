@@ -1,7 +1,7 @@
 ---
 title: Another child of Test
-parent: Test
 has_children: false
+parent: Test
 nav_order: 2
 ---
 
