@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Granchild of Test
 parent: Child of Test
 grand_parent: Test
