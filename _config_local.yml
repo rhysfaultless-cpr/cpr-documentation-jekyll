@@ -1,0 +1,10 @@
+# Local Settings
+
+title: documentation
+baseurl: ""
+theme: "just-the-docs"
+plugins:
+  - jekyll-feed
+
+color_scheme: "light"
+search_enabled: false

@@ -29,7 +29,7 @@ These were my steps for Windows in May 2022:
     I copied all the contents to the root directory, and then deleted the generated folder. 
     (not the correct way to run this operation)
 10. Then run `bundle add webrick`
-11. Then run `bundle exec jekyll serve --livereload`
+11. Then run `bundle exec jekyll serve --config _config_local.yml --livereload`
     - I received the response `... Server address: http://127.0.0.1:4000/ ...`
 
 Note: I am testing a new theme: just-the-docs
