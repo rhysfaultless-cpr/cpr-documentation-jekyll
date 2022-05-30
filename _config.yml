@@ -1,6 +1,10 @@
+# Remote GitHub settings
+
 title: "Documentation"
 remote_theme: just-the-docs/just-the-docs
 color_scheme: "light"
 search_enabled: false
+logo: "/assets/images/site-icons/clearpath_robotics_colour.png"
+
 
 exclude: ["*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", ]

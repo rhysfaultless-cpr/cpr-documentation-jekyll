@@ -8,3 +8,5 @@ plugins:
 
 color_scheme: "light"
 search_enabled: false
+logo: "/assets/images/site-icons/clearpath_robotics_colour.png"
+
