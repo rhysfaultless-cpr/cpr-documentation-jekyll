@@ -8,7 +8,7 @@ nav_order: 1
 # Boxer
 
 <center>
-  <img src="../../assets/images/robot_boxer_1.png" width="400"/>
+  <img src="{{ site.url }}{{ site.baseurl }}//assets/images/robot_boxer_1.png" width="400"/>
 </center>
 
 ## Introduction
