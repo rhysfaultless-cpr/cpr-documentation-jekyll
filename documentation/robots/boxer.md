@@ -40,7 +40,7 @@ The HMI has 5 elements:
 5.  E-stop button
 
 <center>
-  <img src="/assets/images/robot_boxer_2.png" width="400"/>
+  <img src="{{ site.url }}/assets/images/robot_boxer_2.png" width="400"/>
 </center>
 
 ### Hardware overview

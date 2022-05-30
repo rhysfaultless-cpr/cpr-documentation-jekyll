@@ -2,6 +2,7 @@
 
 title: documentation
 baseurl: ""
+url: ""
 theme: "just-the-docs"
 plugins:
   - jekyll-feed
