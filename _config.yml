@@ -1,7 +1,7 @@
 # Remote GitHub settings
 
 title: "Documentation"
-baseurl: ""
+baseurl: "https://rhysfaultless-cpr.github.io/cpr-documentation-jekyll-jtd"
 remote_theme: just-the-docs/just-the-docs
 color_scheme: "light"
 search_enabled: false
