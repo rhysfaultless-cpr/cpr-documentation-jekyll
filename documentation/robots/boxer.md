@@ -8,7 +8,7 @@ nav_order: 1
 # Boxer
 
 <center>
-  <img src="/assets/images/robot_boxer_1.png" width="400"/>
+  <img src="../../assets/images/robot_boxer_1.png" width="400"/>
 </center>
 
 ## Introduction
@@ -43,11 +43,17 @@ The HMI has 5 elements:
   <img src="/assets/images/robot_boxer_2.png" width="400"/>
 </center>
 
+### Hardware overview
+
+Below is an overview of the Boxer robot hardware that outlines the key components that you should be aware of in order to get started with using your robot. 
+
+### Software overview
+
 ## Safety
 
 The Boxer robot contains several features to protect the safety of users and the integrity of the vehicle.
 
-### General warning
+### General warnings
 
 Use of an autonomous robot is inherently dangerous. 
 Please take time to locate the red Emergency Stop _(E-stop)_ button on the rear-right of the system. 
