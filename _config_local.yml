@@ -5,8 +5,6 @@ baseurl: ""
 theme: "just-the-docs"
 plugins:
   - jekyll-feed
-
 color_scheme: "light"
 search_enabled: false
 logo: "/assets/images/site-icons/clearpath_robotics_colour.png"
-
