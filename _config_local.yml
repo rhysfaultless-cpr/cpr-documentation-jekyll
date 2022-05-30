@@ -1,8 +1,8 @@
 # Local Settings
 
 title: documentation
-baseurl: ""
 url: ""
+baseurl: ""
 theme: "just-the-docs"
 plugins:
   - jekyll-feed
