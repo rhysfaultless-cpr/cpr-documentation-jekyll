@@ -7,7 +7,7 @@ nav_order: 2
 This site hosts the documentation of the products that we support, like robots, sensors, and autonomy software/
 We still have our legacy PDF and LaTex manuals stored in GitHub, but wanted a better web-based experience goint forward.
 The documentation on this site will be updated over time, but we will use Versions to timestamp major changes to the documentation.
-If you want to reference anything in this documentation, we suggest finding the relevant sentence in the GitHub repository of this website, and then gettign the permalink from GitHub.
+If you want to reference anything in this documentation, we suggest finding the relevant sentence in the GitHub repository of this website, and then getting the permalink from GitHub.
 
 
 # About Clearpath Robotics
