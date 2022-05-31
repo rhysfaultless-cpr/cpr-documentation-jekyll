@@ -56,24 +56,43 @@ Note: I am testing a new theme: just-the-docs
         The welcome screen will likely ask you what programming extensions you want to use.
         You can skip this for now.
     4.  From the homescreen, click _extensions_.
+
         <img src="/assets/images/windows_installation_vscode_1.png" width="400"/>
+
     5.  Search for _Ruby_, and click the _Install_ icon beside the extension.
+
         <img src="/assets/images/windows_installation_vscode_2.png" width="400"/>
+
     6.  Search for _Prettier_, and click the _Install_ icon beside the extension.
+
         <img src="/assets/images/windows_installation_vscode_3.png" width="400"/>
+
     7.  Search for _Live Server_, and click the _Install_ icon beside the extension.
+
         <img src="/assets/images/windows_installation_vscode_4.png" width="400"/>
+
     8.  Search for _Git Lens_, and click the _Install_ icon beside the extension.
+
         <img src="/assets/images/windows_installation_vscode_5.png" width="400"/>
+
     9.  Open a new terminal in VS Code, and enter `ruby -v`.
+
         <img src="/assets/images/windows_installation_vscode_6.png" width="400"/>
+
         Close and re-open VS Code if you get an error message.
+
         <img src="/assets/images/windows_installation_vscode_7.png" width="400"/>
+
         You should get a confirmation message indicating the version of Ruby.
+
         <img src="/assets/images/windows_installation_vscode_8.png" width="400"/>
+
     10. In the same terminal, enter `gem -v`
+
         You should get a confirmation message indicating the version of Ruby Gems.
+
         <img src="/assets/images/windows_installation_vscode_9.png" width="400"/>
+
     11. Now configure your Git settings in the same terminal.
  
         - Enter `git config --global user.name <"Your name goes here in quotes">`
@@ -95,9 +114,13 @@ Note: I am testing a new theme: just-the-docs
     4.  Once the command is finished running, enter _ls_ in the terminal.
         You should see a new folder named _cpr-documentation-jekyll_
     5.  In VS Code, click _File_ and select _Open Folder ..._
+
         <img src="/assets/images/windows_installation_vscode_10.png" width="400"/>
+
     6.  In the window, navigate to the cloned directory _cpr-documentation-jekyll_ and then click _Select Folder_
+
         <img src="/assets/images/windows_installation_vscode_11.png" width="400"/>
+        
         
 6.  Testing the Documentation server on your computer.
     1.  Open a terminal in VS Code.
