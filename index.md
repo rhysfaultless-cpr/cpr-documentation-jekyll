@@ -15,7 +15,7 @@ Our Client Success Agents are at your disposal.
   <img src="{{ site.url }}{{ site.baseurl }}//assets/images/homepage.png" width="1400"/>
 </center>
 
-## SEND FEEDBACK ABOUT OUR GUIDES
+## Send feedback
 
 Have you found a problem with our documentation or have suggestions on how they can be improved? 
-Please send us your feedback with all the details to <support@clearpathrobotics.com>.
+Please send us your feedback with all the details to <support@clearpathrobotics.com>, or submit a Pull Request to the GitHub repository.
