@@ -10,6 +10,33 @@
 6.  Jekyll theme, [Just-The-Docs](https://github.com/just-the-docs/just-the-docs)
     - [Example Website Repository](https://github.com/pmarsceill/jtd-remote)
 
+
+
+
+## How the documentation-website builds, Locally
+
+Ruby uses your project's Gemfile as a package manager.
+When you run `bundle install` from the root of the project directory, Ruby will read your _Gemfile_ and install all the Gems (dependencies) listed in it.
+Running `bundle update` is similar, but comparing the current state of you project's _Gemfile.lock_ to the _Gemfile_ and installing or removing files based on the differences.
+Note that the _.gitignore_ for this project prevents the _Gemfile.lock_ from being added to GitHub, so it is a new installation every time a User clones the repository.
+This is okay for our use case with GitHub Pages as our deployment server, 
+  since Pages does not reference the repository's _Gemfile.lock_ for CI/CD _(Continuous-Integration/Continuous-Deployment)_.
+After running `bundle install`, you can start the server by running the command:
+
+    bundle exec jekyll serve --config _config_local.yml --livereload
+
+This command has 3 main aspects:
+
+1.  `bundle exec jekyll serve` will deploy the website using Jekyll, which was an installed dependency in the _Gemfile_
+2.  `--config _config_local.yml` is telling Jekyll to use the configuration file *_config_local.yml* in the root of the project directory.
+    Omitting this aspect of the command would have Jekyll use the default file, *_config.yml*. 
+    The default file has been configured for GitHub Pages, and causes issues for local deployments.
+3.  `--livereload` tells Jekyll to redeploy the website every time the project is updated. 
+    This includes any new file, updating an existing file, or changing the directory folder structure. 
+    Note that this automatic redeployment does not capture changes to *_config_local.yml*, so you will need to manually restart the server if you make changes to the configuration.
+
+After running the command, you can access the website in a web-browser like Google Chrome at the address <http://127.0.0.1:4000>
+
 ## Steps to update documentation on Windows (assuming fresh installation)
 
 1.  Set up your GitHub account.  
@@ -126,5 +153,3 @@
                 Server running... press ctrl-c to stop.
 
     5.  You can now access the Documentation website by opening a web-browser like Google Chrome, and entering the URL: <http://127.0.0.1:4000>
-
-
