@@ -1,6 +1,6 @@
 ---
 title: TurtleBot 4
-parent: TurtleBot 4
+parent: Robots
 has_children: true
 nav_order: 6
 ---
