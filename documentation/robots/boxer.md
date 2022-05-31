@@ -258,6 +258,8 @@ To connect the backpack computer to a wireless network follow these steps:
 
     		ip a
 
+---
+
 ## Operation
 
 This section outlines how to use the basic functions of the Boxer platform in order to get started quickly. 
@@ -430,4 +432,33 @@ Note that the 37-Position connector will come pre-populated from Clearpath Robot
 These 2 wires complete the base Boxer's E-stop loop, allowing the robot to move. 
 Other positions of the connector may be pre-populated, well as the PoE and USB, if your robot was equipped with payloads according to your Clearpath Robotics customizations. 
 
-{% include components/ros_sensors.md %}
+{% include components/software_integration_ros_sensors.md %}
+
+---
+
+## Maintenance
+
+The Boxer is built for rugged, long-term use. 
+Here are some steps that can be taken to maintain and extend the life of Boxer further. 
+
+### Battery care
+
+To help extend the life of the batteries, follow the steps below. 
+
+- Do not discharge the batteries lower than 10%. Batteries lower than 5% are permanently damaged and cannot be recharged.
+- Recharge batteries to 100% after every use.
+- Recharge batteries and turn the circuit breaker to ”OFF” before putting the system into long-term storage.
+- Batteries that are in long-term storage will need to be recharged every 6 months.
+- Charge batteries when the ambient temperature is between 20°C to 30°C. Consult Clearpath Robotics if you need to charge batteries outside these conditions.
+
+### Battery charging
+
+The system can be charged using an [OTTO 100 Manual Charger](https://help.ottomotors.com/docs/chargers/otto-100-manual-charger) or an [OTTO 100 Fast Charger](https://help.ottomotors.com/docs/chargers/otto-100-fast-charger). 
+Details for use and installation are provided in the linked User Manuals.
+
+Only use the OTTO 100 Manual Charger or OTTO 100 Fast Charger provided with your Boxer. 
+Use of other chargers may cause damage or injury.
+
+---
+
+{% include components/support.md %}
