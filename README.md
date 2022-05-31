@@ -106,7 +106,7 @@ Note: I am testing a new theme: just-the-docs
 5.  Clone this repository to your computer.
     1.  Open a terminal in VS Code.
     2.  Use _cd_ and _cd .._ to navigate to the directory you want to store GitHub repositories locally on your computer.
-        I same mine to the directory `C:\Users\rfaultless\Documents\Github`.
+        I save mine to the directory `C:\Users\rfaultless\Documents\Github`.
     3.  Now clone this repository to your computer by entering:
 
             git clone https://github.com/rhysfaultless-cpr/cpr-documentation-jekyll.git
@@ -120,7 +120,7 @@ Note: I am testing a new theme: just-the-docs
     6.  In the window, navigate to the cloned directory _cpr-documentation-jekyll_ and then click _Select Folder_
 
         <img src="/assets/images/windows_installation_vscode_11.png" width="400"/>
-        
+
         
 6.  Testing the Documentation server on your computer.
     1.  Open a terminal in VS Code.
