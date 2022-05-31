@@ -161,10 +161,10 @@ Refer to [Connecting a Vehicle to Your Network](https://help.ottomotors.com/sw22
 4.  Enter the required information to connect to your network. 
     See your IT administrator for proper settings for your network.
     <center>
-      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_9.png" width="400"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_9.png" width="600"/>
     </center>
     <center>
-      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_10.png" width="400"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_10.png" width="600"/>
     </center>
 5.  Take note of the hostname. 
     It will be used in future steps for accessing the robot.
@@ -175,11 +175,11 @@ Refer to [Connecting a Vehicle to Your Network](https://help.ottomotors.com/sw22
     (e.g. <http://A31-002124076:5000>) 
     The _OTTO App_ should load, and look similar to the image below.
     <center>
-      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_11.png" width="400"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_11.png" width="600"/>
     </center>
 9.  Adjust the volume to an appropriate level for your facility by selecting the _Vehicle_ option from the top-left menu and adjusting the volume as appropriate.
     <center>
-      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_12.png" width="400"/>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_12.png" width="600"/>
     </center>
 10. You have finished onfiguring the Boxer base robot, and it's ready for use.
 
@@ -194,3 +194,240 @@ A ROS bridge automatically runs upon booting the backpack computer, and transmit
 This ROS bridge allows you to leverage the base robot for your own application. 
 The backpack computer uses Netplan as its network configuration tool, and has a static IP address of <192.168.131.1>.
 
+### Connecting to the backpack computer
+
+You can connect to the backpack computer on Boxer over a wired or Wi-Fi connection. 
+
+To connect to the backpack computer over a wired connection:
+
+1.  Configure a network port on your laptop with the IP address <192.168.131.100>
+2.  Connect a network cable from your laptop to an open network port on the backpack computer.
+3.	Test the connection between the user computer and backpack computer by opening a terminal and entering: `ping 192.168.131.1 `
+4.	From your laptop's terminal, you can access the backpack computer by entering: `ssh administrator@192.168.131.1`
+
+To connect to the backpack computer over a Wi-Fi connection:
+
+1.	Connect your laptop to the same Wi-Fi network as the backpack computer. 
+2.	Note the IP address of the backpack computer’s wireless interface by running this command the backpack computer's terminal: `ip a`
+3.	To test the connection between your laptop and backpack computer, enter this command in a terminal from your laptop: `ping <wireless_ip_address>` (eg. `ping 192.168.0.11`)
+4.	From your laptop's terminal, you can access the backpack computer by entering: `ssh administrator@<wireless_ip_address>` (eg. `ssh administrator@192.168.0.11`) 
+
+### 4.4.2	Connecting the backpack computer to a Wi-Fi network
+
+To connect the backpack computer to a wireless network follow these steps:
+
+1.  Access the backpack computer over an SSH connection. 
+    Since the backpack computer is presumably not connected to a Wi-Fi network yet, you will need to access the backpack computer over a wired connection. 
+    The previous section details how to connect to the backpack computer over a wired connection.
+2.  Once you have accessed the backpack computer, create a netplan configuration by running the following command.
+ 
+        sudo touch /etc/netplan/60-wifi.yaml
+ 
+    This will create a file called _60-wifi.yaml_ inside of the _/etc/netplan/_ directory.
+3.	Open _/etc/netplan/60-wifi.yaml_ with your favourite text editor and populate it. 
+    Use this example configuration file as reference:
+
+        network:
+          wifis:
+            # change wlp2s0 to exactly match your wireless interface
+            # common values are wlp2s0, wlp3s0, wlan0, etc...
+            # if you aren't sure, use the `iwconfig` or `ip a` command
+            wlp2s0:
+              optional: true
+              access-points:
+                # replace "my-ssid" with the SSID of your wireless network
+                my-ssid:
+                  # put your wireless password here
+                  password: wifi_password_goes_here
+              # DHCP4 should be enabled for most wireless routers
+              # alternatively you can use a static IP address.
+              # e.g, uncomment the following
+              #addresses: [192.168.1.100/24]
+              #gateway: 192.168.1.1
+              #dhcp4: false
+              dhcp4: true
+              dhcp4-overrides:
+                send-hostname: true
+
+4.  Connect the backpack computer to the wireless network by running the command below. 
+    Note that this may take a moment to complete:
+		
+        sudo netplan apply
+
+5.  To verify that the backpack computer is connected to the wireless network, check that the backpack computer has an IP address assigned to its wireless interface by running:
+
+    		ip a
+
+## Operation
+
+This section outlines how to use the basic functions of the Boxer platform in order to get started quickly. 
+There are three methods of operating the robot with varying degrees of control. 
+
+### Getting started with the OTTO user interface
+
+This section details how to get the Robot driving around using the OTTO user interface. 
+
+1.  Power on the system.
+2.  Ensure that the E-stop is released by pulling out the red button at the rear of the unit, and then pressing the blue Reset button.
+    <center>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_13.jpg" width="200"/>
+    </center>
+    <center>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_14.png" width="200"/>
+    </center>
+3.	Using the base Boxer's hostname or static IP, open the OTTO App by entering the following in your laptop's web-browser: 
+
+        http://<hostname>:5000
+    
+4.  You are now ready to start driving your system.
+
+### Driving manually
+
+To drive the robot manually, follow the steps below. 
+
+1.  Power up the robot and connect to the OTTO App at `http://<hostname>:5000`
+2.	The first time after power-up, it is necessary to take the system out of neutral by clicking on the joystick icon at the bottom right of the interface.
+    <center>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_15.png" width="600"/>
+    </center>
+3.  Ensure that the system is in manual mode and use the _thumbstick_ at the bottom right of the interface to drive the robot in the desired direction. 
+    Note that the maximum speed can be adjusted using the slider _Tortoise-Hare_ at the bottom of the interface.
+    We recommended you begin at slow speeds until you become comfortable with how to control the robot.
+    <center>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_16.png" width="600"/>
+    </center>    
+
+### 5.1.2	Mapping
+
+Prior to navigating autonomously, a map of the facility must be created. 
+The details of creating a map are beyond the scope of this document. 
+Detailed instructions for mapping can be found here:
+
+-	[OTTO App training](https://otto.talentlms.com/)
+
+### Joystick control
+
+If your Boxer unit is equipped with a backpack computer, the simplest method for controlling the Boxer robot is using the supplied Playstation 4 Bluetooth Controller. 
+This controller is already pre-paired to the robot. 
+To use the controller: 
+
+1.  Power up the robot and connect to the OTTO App at `http://<hostname>:5000`
+2.  The system will boot up into a neutral state. 
+    Take the robot out of _Neutral_ by clicking the _Joystick_ icon at the bottom right of the interface.
+3.	Press the PS button on the controller to sync with the robot. 
+    Once the blue LED on the top of the controller is solid, the Robot is paired and ready to move. 
+    Hold the L1 trigger button to engage the deadman switch. 
+    Push the left thumbstick in the direction you wish to move the Boxer. 
+4.  For full speed mode, hold the R1 trigger. 
+    Note that it is recommended that you use full speed mode only when comfortable with the operation of the Boxer. 
+    <center>
+      <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_17.png" width="600"/>
+    </center>     
+
+###	Operation using ROS
+
+As with every Clearpath Robotics Robot, the Boxer can be operated using ROS topics. 
+For general ROS tutorials, visit <https://clearpathrobotics.com/assets/guides/noetic/ros/index.html>. 
+To quickly get started running your Boxer with ROS follow the instructions below. 
+
+Upon booting the Boxer, ROS will begin running on both the base platform computer and the backpack computer. 
+The Boxer can be operated using ROS over its ROS topics, and there are two ways of interfacing with Boxer’s ROS topics: 
+
+1.  SSH into Boxer’s backpack computer, or 
+2.  Setting the Boxer’s backpack PC as the ROS Master on a local computer.
+
+You can SSH into the Boxer's backpack computer by connecting a network cable directly between your PC and an open network port on the backpack PC.  
+Configure your computer to have a static IP address on the `192.168.131.0/24` subnet, for example `192.168.131.100`>`.  
+Once this is done you can log into the robot by running:
+
+    ssh administrator@192.168.131.1
+
+If your laptop is connected to the same Wi-Fi network as the Boxer, you can SSH into the backpack computer using the robot’s IP address on the Wi-Fi network (e.g. `192.168.1.11`)
+You may need to SSH over a wired connection and use the `ip a` command to determine what Wi-Fi address has been assigned to the backpack computer.
+
+	  ssh administrator@<computer ip>
+
+The ROS topics on Boxer can be seen by running:
+
+	  rostopic list
+
+Data from sensors such as the camera, internal IMU, front laser, and rear laser can be seen with:
+
+  	rostopic echo /realsense/depth/image_rect_raw
+	  rostopic echo /imu/module0/data
+	  rostopic echo /front/scan
+	  rostopic echo /rear/scan
+
+Boxer can be driven using its kinematic controller by publishing drive commands to the `/cmd_vel` ROS topic. 
+For example, to drive Boxer forward slowly:
+
+	  rostopic pub /cmd_vel geometry_msgs/Twist "linear:
+  	  	x: 0.1
+  	  	y: 0.0
+  	  	z: 0.0
+    angular:
+  	  	x: 0.0
+  		  y: 0.0
+  		  z: 0.0" 
+
+Boxer can be visualized and controlled through rviz. 
+On you laptop, set the Boxer’s backpack computer as the ROS Master, and run the following command to view Boxer in rviz. 
+
+    roslaunch boxer_viz view_robot.launch
+
+Rviz allows you to interactively drive Boxer around.
+Note that the Boxer-specific packages must be installed and sourced on your laptop before to running the command, otherwise, Boxer will not load correctly in rviz.
+
+To restart ROS without having to reboot the Boxer:
+
+  	sudo systemctl restart ros
+	  sudo systemctl restart ros-bridge
+
+---
+
+## Payload integration guide
+
+If you would like to attach custom hardware to the Boxer, you will have to make modifications for mechanical mounting, electrical supply, and software integration. 
+This section aims to help you with respect to these tasks.
+
+### Mechanical Mounting
+
+External payloads can be attached to the mounting plate of the Boxer by using the predrilled Ø4.2 mm thru holes, using the Ø8 mm countersunk through holes on the underside, or adding new holes. 
+Whichever method you choose, the method for removing the top plate is the same and outlined below. 
+
+1.	Ensure the Robot is shut off, and the curcuit breaker is turned to the _off_ position.
+2.	Disconnect and remove all existing payloads on the top plate. 
+3.	Using a 2 mm hex key, remove the twelve M3 round head screws holding the connection covers in place. 
+    Remove the panels. 
+    Take care to disconnect the network cable and attachment cable from the robot when removing the connection covers. 
+4.	Using a 4 mm hex key, remove the eleven M5 socket head screws holding the plate down. 
+5.	Remove the plate from the Boxer. 
+
+The Boxer plate is made from 8 mm aluminum and can be easily machined according to your customization needs.
+There are 19 premade Ø4.3 mm holes that can be used for mounting payloads to the Boxer. 
+<center>
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_18.png" width="600"/>
+</center>     
+
+The plate also has eight Ø8 mm holes in the corners which are countersunk from the underside of the plate, making them ideal for flathead screws installed to protrude from the plate. 
+<center>
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/images/robot_boxer_19.png" width="600"/>
+</center> 
+
+### 6.2	Electrical Integration
+
+For connecting with any external payloads, such as a backpack computer, refer to the product’s datasheet or manual. 
+If your robot was equipped with these payloads by Clearpath Robotics this documentation is provided along with your Boxer. 
+Contact our Support team if you need more information.
+
+Ensure that the Boxer is shut off and the circuit breaker is turned to the _off_ position before performing any electrical work on the Boxer. 
+
+The Boxer is equipped with an attachment interface that consists of a Power-over-Ethernet (PoE) RJ45 bulkhead connector, a USB Type-A bulkhead connector, and a 37-Position panel receptacle and mated plug. 
+To connect with the Boxer attachment interface see Section 10 of the [OTTO 100 V2.4 Operation and Maintenance Manual](https://help.ottomotors.com/docs/files/53683025/99909709/1/1606232510624/OMM-000094-Operation+and+Maintenance+Manual+OTTO+100+V2.4_A.pdf). 
+
+To add wires to the 37-Position connector for you application, follow the TE Connectivity documentation for [connector 206305-1](https://www.te.com/usa-en/product-206305-1.html) to use appropriate crimp pins. 
+Note that the 37-Position connector will come pre-populated from Clearpath Robotics with 2 wires.
+These 2 wires complete the base Boxer's E-stop loop, allowing the robot to move. 
+Other positions of the connector may be pre-populated, well as the PoE and USB, if your robot was equipped with payloads according to your Clearpath Robotics customizations. 
+
+{% include components/ros_sensors.md %}
