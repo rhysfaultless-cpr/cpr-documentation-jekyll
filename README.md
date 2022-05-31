@@ -107,6 +107,7 @@
         You will see new files and folders appearing in the project directory, like:
 
         - Gemfile.lock
+        - _site
 
     4.  After the files are installed, enter this in the terminal session:
 
