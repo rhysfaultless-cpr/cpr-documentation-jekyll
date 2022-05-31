@@ -11,7 +11,23 @@
     - [Example Website Repository](https://github.com/pmarsceill/jtd-remote)
 
 
+## How the documentation-website builds, on GitHub Pages
 
+GitHub Pages supports Jekyll by default.
+GitHub has gone so far as to make this process _easy_ by allowing you to deploy sites without a _Gemfile_ to list dependencies.
+For me, this was a difficult process, where my local _Gem_ dependencies were different than the Pages server.
+This difference in dependencies makes testing and quality-assurance difficult, especially since GitHub Pages only gives you website instance, deployed from your main branch (this repository's main branch is _production_ and was configured in the Settings panel of GitHub).
+
+Some frequent issues during testing:
+
+- differences between the Jekyll themes (Local versus Remote)
+- links, tags, and includes working well locally, but do not complete on GitHub pages (Liquid/Jekyll path issues)
+- HTML and CSS customizations building as intended locally, but causeing issues on GitHub Pages
+
+GitHub runs a GitHub-Action whenever it sees new commits on the main branch. 
+This Action will review *_config.yml*, and will deploy all your _.md_ and _.html_ files.
+GitHub Pages lets you choose to host your files from the project's root directory `/` or from a docs folder `/docs`.
+I chose the root directory, since I wanted to also test the site locally on my computer.
 
 ## How the documentation-website builds, Locally
 
