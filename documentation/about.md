@@ -1,7 +1,7 @@
 ---
 title: About
 has_children: false
-nav_order: 3
+nav_order: 2
 ---
 # About this website
 This site hosts the documentation of the products that we support, like robots, sensors, and autonomy software/
