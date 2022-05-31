@@ -8,6 +8,6 @@ nav_order: 4
 
 # Warthog, Maintenance Manual
 
-{% include components/introduction_Warthog.md %}
+{% include components/introduction_warthog.md %}
 
 <!-- TODO -->
