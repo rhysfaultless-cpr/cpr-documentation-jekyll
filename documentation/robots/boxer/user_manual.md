@@ -1,23 +1,15 @@
 ---
-title: Boxer
-parent: Robots
+title: Boxer, User Manual
+parent: Boxer
+grand_parent: Robots
 has_children: false
 nav_order: 1
 ---
 
-# Boxer
+# Boxer, User Manual
 
-<center>
-  <img src="{{ site.url }}{{ site.baseurl }}//assets/images/robot_boxer_1.png" width="400"/>
-</center>
+{% include components/introduction_boxer.md %}
 
-
----
-## Introduction
-
-Boxer is a large indoor robotic platform for prototyping and development of industrial and research applications. 
-Adapted from the OTTO Motors _OTTO 100 V2.4 autonomous mobile robot (AMR)_, 
-Boxer is an industrial-grade mobile robot that is programmable and easily extensible with additional hardware.
 The following sections provide key information on safety, setup, operation, and maintenance.
 
 ### What's included
